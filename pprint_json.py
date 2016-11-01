@@ -6,7 +6,7 @@ def load_data(filepath):
     if not os.path.isfile(filepath):
         return None
     with open(filepath) as data_file:
-            return json.load(data_file)
+        return json.load(data_file)
 
 
 def pretty_print_json(data):
@@ -14,10 +14,8 @@ def pretty_print_json(data):
 
 
 if __name__ == '__main__':
-    print('Enter path to the file:', end='')
-    data = load_data(input())
+    data = load_data(input('Enter path to the file:\n=> '))
     while data is None:
-        print('Looks like the filepath is wrong. Please, enter the real path to JSON file.')
-        data = load_data(input())
+        data = load_data(input('Looks like the file path is wrong. Please, enter the real path to JSON file.\n=> '))
 
     pretty_print_json(data)
